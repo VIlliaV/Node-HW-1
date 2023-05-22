@@ -1,4 +1,15 @@
-const argv = require("yargs").argv;
+const { Command } = require("commander");
+const program = new Command();
+program
+  .option("-a, --action <type>", "choose action")
+  .option("-i, --id <type>", "user id")
+  .option("-n, --name <type>", "user name")
+  .option("-e, --email <type>", "user email")
+  .option("-p, --phone <type>", "user phone");
+
+program.parse(process.argv);
+
+const argv = program.opts();
 
 const {
   listContacts,
@@ -12,7 +23,7 @@ async function invokeAction({ action, id, name, email, phone }) {
     case "list":
       list = await listContacts();
       if (!list) return console.log("contacts not found");
-      console.table(list);
+      console.log("List of contacts:", list);
       break;
 
     case "get":
