@@ -23,7 +23,7 @@ async function invokeAction({ action, id, name, email, phone }) {
     case "list":
       list = await listContacts();
       if (!list) return console.log("contacts not found");
-      console.log("List of contacts:", list);
+      console.table(list);
       break;
 
     case "get":
