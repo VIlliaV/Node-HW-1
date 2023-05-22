@@ -2,6 +2,7 @@ const {
   listContacts,
   getContactById,
   removeContact,
+  addContact,
 } = require("./contacts.js");
 
 // const rl = readline.createInterface({
@@ -9,4 +10,4 @@ const {
 //   output: process.stdout, // виведення у стандартний потік
 // });
 
-console.log(removeContact("drsAJ4SHPYqZeG-83QTVW"));
+console.log(addContact("Vasya", "email", "0707070707"));
